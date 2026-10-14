@@ -1,0 +1,579 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* ===== COLOR THEME ===== */
+:root {
+  font-family: "Inter", sans-serif;
+  color: #f1f5f9;
+  background: #101827;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  --bg: #101827;
+  --card: #192438;
+  --card-hover: #24344e;
+  --border: #30415c;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --text: #f1f5f9;
+  --muted: #9aabc3;
+  --green: #34d399;
+  --amber: #fbbf24;
+  --red: #fca5a5;
+}
+
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(
+      ellipse at top left,
+      #1c3150 0%,
+      transparent 40%
+    ),
+    var(--bg);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 3px;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.app-container {
+  width: min(900px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 30px 0 24px;
+  color: var(--text);
+}
+
+/* ===== HEADER ===== */
+.app-header,
+.brand,
+.panel-heading,
+.task-content,
+.task-actions,
+.task-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-header {
+  margin-bottom: 46px;
+}
+
+.brand {
+  justify-content: flex-start;
+  gap: 11px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+}
+
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  border-radius: 12px;
+  box-shadow: 0 0 24px #3b82f640;
+}
+
+.header-label {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+/* ===== WELCOME ===== */
+.welcome {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  color: #60a5fa;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+}
+
+.welcome h1 {
+  margin: 12px 0;
+  color: #ffffff;
+  font-size: clamp(30px, 5vw, 43px);
+  font-weight: 800;
+  letter-spacing: -1.6px;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ===== STATISTICS ===== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card,
+.task-panel {
+  background: linear-gradient(145deg, #1c2940, #172237);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px #00000020;
+}
+
+.stat-card {
+  padding: 22px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  border-color: #4b6690;
+}
+
+.stat-label,
+.stat-note {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.stat-card strong {
+  display: block;
+  margin: 12px 0 8px;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.completed-number {
+  color: var(--green) !important;
+}
+
+.pending-number {
+  color: var(--amber) !important;
+}
+
+/* ===== TASK PANEL ===== */
+.task-panel {
+  padding: 26px;
+}
+
+.panel-heading {
+  margin-bottom: 22px;
+}
+
+.panel-heading h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.panel-heading p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.task-total {
+  color: #93c5fd;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ===== ADD TASK FORM ===== */
+.task-form {
+  margin-bottom: 24px;
+}
+
+.input-wrap {
+  display: flex;
+  gap: 10px;
+}
+
+.input-wrap input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 15px;
+  color: #f1f5f9;
+  background: #101827;
+  border: 1px solid #354762;
+  border-radius: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-wrap input::placeholder {
+  color: #7f91ab;
+}
+
+.input-wrap input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px #3b82f620;
+  outline: none;
+}
+
+.add-btn {
+  padding: 13px 18px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 5px 16px #3b82f630;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-btn:hover {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px #3b82f645;
+}
+
+.add-btn:active {
+  transform: translateY(0);
+}
+
+.error-message {
+  margin: 9px 0 0;
+  color: #fca5a5;
+  font-size: 12px;
+}
+
+/* ===== FILTERS ===== */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #2b3b55;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  color: #a9b8ce;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  color: #ffffff;
+  background: #24344e;
+}
+
+.filter-btn.active {
+  color: #bfdbfe;
+  background: #233c63;
+  border-color: #3b82f6;
+  font-weight: 700;
+}
+
+.filter-count {
+  padding: 3px 7px;
+  color: #dbeafe;
+  background: #2b3b55;
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.filter-btn.active .filter-count {
+  color: #ffffff;
+  background: #3b82f6;
+}
+
+/* ===== TASK LIST ===== */
+.task-list {
+  display: grid;
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px;
+  background: #1d2a40;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.task-item:hover {
+  background: var(--card-hover);
+  border-color: #45638b;
+}
+
+/* ===== TASK TITLE AND CHECKBOX ===== */
+.task-content {
+  justify-content: flex-start;
+  gap: 12px;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.task-content input {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.task-title {
+  overflow-wrap: anywhere;
+  color: #e2e8f0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.completed .task-title {
+  color: #8292a9;
+  text-decoration: line-through;
+  text-decoration-color: #64748b;
+}
+
+/* ===== TASK STATUS ===== */
+.task-actions {
+  justify-content: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.status {
+  padding: 6px 9px;
+  border-radius: 7px;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status.done {
+  color: #6ee7b7;
+  background: #123d36;
+  border: 1px solid #17644e;
+}
+
+.status.pending {
+  color: #fcd34d;
+  background: #493719;
+  border: 1px solid #715323;
+}
+
+/* ===== DELETE BUTTON ===== */
+.delete-btn {
+  padding: 7px 10px;
+  color: #fca5a5;
+  background: #34212b;
+  border: 1px solid #633542;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  color: #ffffff;
+  background: #b91c1c;
+  border-color: #ef4444;
+}
+
+/* ===== EMPTY STATE ===== */
+.empty-state {
+  padding: 40px 12px;
+  text-align: center;
+}
+
+.empty-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 14px;
+  color: #93c5fd;
+  background: #233c63;
+  border: 1px solid #345889;
+  border-radius: 50%;
+  font-size: 21px;
+}
+
+.empty-state h3 {
+  margin: 0 0 9px;
+  color: #f1f5f9;
+  font-size: 16px;
+}
+
+.empty-state p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* ===== TASK FOOTER ===== */
+.task-footer {
+  gap: 12px;
+  margin-top: 21px;
+  padding-top: 17px;
+  color: #a9b8ce;
+  border-top: 1px solid #2b3b55;
+  font-size: 11px;
+}
+
+/* ===== PAGE FOOTER ===== */
+.app-footer {
+  padding: 28px 0 0;
+  color: #8292a9;
+  text-align: center;
+  font-size: 11px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 600px) {
+  .app-container {
+    width: calc(100% - 24px);
+    padding-top: 20px;
+  }
+
+  .app-header {
+    margin-bottom: 34px;
+  }
+
+  .brand {
+    font-size: 19px;
+  }
+
+  .header-label {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .welcome h1 {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .stats {
+    gap: 8px;
+  }
+
+  .stat-card {
+    padding: 14px 10px;
+    border-radius: 12px;
+  }
+
+  .stat-card strong {
+    font-size: 25px;
+  }
+
+  .stat-label,
+  .stat-note {
+    font-size: 10px;
+  }
+
+  .task-panel {
+    padding: 16px;
+  }
+
+  .input-wrap {
+    flex-direction: column;
+  }
+
+  .add-btn {
+    min-height: 44px;
+  }
+
+  .filters {
+    gap: 5px;
+  }
+
+  .filter-btn {
+    gap: 5px;
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  .task-item {
+    align-items: flex-start;
+    padding: 12px 9px;
+  }
+
+  .task-content {
+    gap: 8px;
+  }
+
+  .task-actions {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 7px;
+  }
+
+  .status {
+    font-size: 9px;
+  }
+
+  .task-footer {
+    align-items: flex-start;
+    font-size: 10px;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
